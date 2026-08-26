@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { Pokemon } from '../models/pokemon';
-import { PokemonCard } from '../pokemon-card/pokemon-card';
-import { PokemonService } from '../services/pokemonService';
+import { Pokemon } from '../../models/pokemon';
+import { PokemonCard } from '../../pokemon-card/pokemon-card';
+import { PokemonService } from '../../services/pokemonService';
 
 @Component({
   imports: [PokemonCard],

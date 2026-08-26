@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, Service } from '@angular/core';
-import { Pokemon, PokemonListResponse } from '../models/pokemon';
+import { inject, Injectable } from '@angular/core';
+import { Pokemon, PokemonDetailResponse, PokemonDetails, PokemonListResponse } from '../models/pokemon';
 import { map, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -23,5 +23,20 @@ export class PokemonService {
           }),
         ),
       );
+  }
+
+  getPokemonById(id: number): Observable<PokemonDetails> {
+    return this.http.get<PokemonDetailResponse>(`${this.apiUrl}/${id}`).pipe(
+      map((response) => ({
+        id: response.id,
+        name: response.name,
+        imageUrl: response.sprites.front_default ?? '',
+        types: response.types.map((entry) => entry.type.name),
+        stats: response.stats.map((entry) => ({
+          name: entry.stat.name,
+          value: entry.base_stat,
+        })),
+      })),
+    );
   }
 }

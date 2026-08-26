@@ -4,6 +4,10 @@
   padding: 1rem;
   text-align: center;
   background: #fff;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .card img {

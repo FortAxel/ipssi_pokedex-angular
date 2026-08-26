@@ -1,0 +1,21 @@
+@if (pokemon(); as p) {
+  <a routerLink="/">← Retour</a>
+
+  <h1>{{ p.name }}</h1>
+  <img [src]="p.imageUrl" [alt]="p.name" />
+
+  <ul>
+    @for (type of p.types; track type) {
+      <li>{{ type }}</li>
+    }
+  </ul>
+
+  @for (stat of p.stats; track stat.name) {
+    <div class="stat">
+      <span>{{ stat.name }} ({{ stat.value }})</span>
+      <div class="stat-bar-bg">
+        <div class="stat-bar-fill" [style.width.%]="(stat.value / 255) * 100"></div>
+      </div>
+    </div>
+  }
+}
