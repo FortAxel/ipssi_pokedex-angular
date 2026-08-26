@@ -7,3 +7,12 @@
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
 }
+
+.search {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}

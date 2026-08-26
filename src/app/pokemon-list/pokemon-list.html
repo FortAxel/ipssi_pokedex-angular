@@ -1,8 +1,15 @@
 <section class="list">
   <h1>Pokédex</h1>
 
+  <input
+    class="search"
+    type="search"
+    placeholder="Rechercher un Pokémon..."
+    [value]="searchTerm()"
+    (input)="onSearch($event)"
+  />
   <div class="grid">
-    @for (pokemon of pokemons(); track pokemon.id) {
+    @for (pokemon of filteredPokemons(); track pokemon.id) {
       <app-pokemon-card [pokemon]="pokemon" />
     }
   </div>
