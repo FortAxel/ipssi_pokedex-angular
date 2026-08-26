@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+}
+
+.card img {
+  width: 96px;
+  height: 96px;
+}
+
+.card p {
+  margin: 0.5rem 0 0;
+  text-transform: capitalize;
+  font-weight: 600;
+}

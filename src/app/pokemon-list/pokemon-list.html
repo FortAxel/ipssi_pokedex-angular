@@ -1,0 +1,9 @@
+<section class="list">
+  <h1>Pokédex</h1>
+
+  <div class="grid">
+    @for (pokemon of pokemons(); track pokemon.id) {
+      <app-pokemon-card [pokemon]="pokemon" />
+    }
+  </div>
+</section>
