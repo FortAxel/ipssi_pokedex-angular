@@ -1,22 +1,44 @@
 .card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1rem 1.2rem;
   background: #fff;
-  display: block;
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  height: 100%;
 }
 
-.card img {
+.card:hover {
+  border-color: #ccc;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 6%);
+}
+
+.sprite {
   width: 96px;
   height: 96px;
+  border-radius: 50%;
+  background: #ececec;
+  display: grid;
+  place-items: center;
 }
 
-.card p {
-  margin: 0.5rem 0 0;
+.sprite img {
+  width: 80px;
+  height: 80px;
+}
+
+.id {
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  color: #9a9a9a;
+}
+
+.name {
+  margin: 0.15rem 0 0;
+  font-weight: 700;
   text-transform: capitalize;
-  font-weight: 600;
 }

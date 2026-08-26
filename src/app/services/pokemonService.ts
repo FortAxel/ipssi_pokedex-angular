@@ -10,7 +10,7 @@ export class PokemonService {
 
   getPokemonList(): Observable<Pokemon[]> {
     return this.http
-      .get<PokemonListResponse>(`${this.apiUrl}?limit=20`)
+      .get<PokemonListResponse>(`${this.apiUrl}?limit=1000`)
       .pipe(
         map((response) =>
           response.results.map((item) => {

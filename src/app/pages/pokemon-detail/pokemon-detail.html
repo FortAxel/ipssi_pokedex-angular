@@ -1,21 +1,42 @@
 @if (pokemon(); as p) {
-  <a routerLink="/">← Retour</a>
+  <section class="page">
+    <header class="topbar">
+      <a routerLink="/">← Retour</a>
+    </header>
 
-  <h1>{{ p.name }}</h1>
-  <img [src]="p.imageUrl" [alt]="p.name" />
+    <div class="content">
+      <article class="sheet">
+        <div class="hero">
+          <div class="hero-sprite">
+            <img [src]="p.imageUrl" [alt]="p.name" />
+          </div>
+        </div>
 
-  <ul>
-    @for (type of p.types; track type) {
-      <li>{{ type }}</li>
-    }
-  </ul>
+        <div class="info">
+          <h1>{{ p.name }}</h1>
+          <p class="id">N° {{ p.id}}</p>
 
-  @for (stat of p.stats; track stat.name) {
-    <div class="stat">
-      <span>{{ stat.name }} ({{ stat.value }})</span>
-      <div class="stat-bar-bg">
-        <div class="stat-bar-fill" [style.width.%]="(stat.value / 255) * 100"></div>
-      </div>
+          <div class="types">
+            @for (type of p.types; track type) {
+              <span class="type" [class]="'type type-' + type">{{ type }}</span>
+            }
+          </div>
+
+          <h2>Statistiques de base</h2>
+
+          @for (stat of p.stats; track stat.name) {
+            <div class="stat">
+              <span class="stat-name">{{ stat.name }}</span>
+              <div class="stat-bar-bg">
+                <div
+                  class="stat-bar-fill"
+                  [style.width.%]="(stat.value / 255) * 100"
+                ></div>
+              </div>
+            </div>
+          }
+        </div>
+      </article>
     </div>
-  }
+  </section>
 }

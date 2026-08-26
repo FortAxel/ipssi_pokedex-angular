@@ -1,16 +1,24 @@
-<section class="list">
-  <h1>Pokédex</h1>
+<section class="page">
+  <header class="topbar">
+    <h1>Pokedex</h1>
+  </header>
 
-  <input
-    class="search"
-    type="search"
-    placeholder="Rechercher un Pokémon..."
-    [value]="searchTerm()"
-    (input)="onSearch($event)"
-  />
-  <div class="grid">
-    @for (pokemon of filteredPokemons(); track pokemon.id) {
-      <app-pokemon-card [pokemon]="pokemon" />
-    }
+  <div class="content">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input
+        class="search"
+        type="search"
+        placeholder="Rechercher un Pokémon..."
+        [value]="searchTerm()"
+        (input)="onSearch($event)"
+      />
+    </div>
+
+    <div class="grid">
+      @for (pokemon of filteredPokemons(); track pokemon.id) {
+        <app-pokemon-card [pokemon]="pokemon" />
+      }
+    </div>
   </div>
 </section>
