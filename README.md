@@ -1,59 +1,30 @@
-# Pokedex
+# Pokédex
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.5.
+**Nom :** FORTUNATO  
+**Prénom :** Axel
 
-## Development server
+## Description
 
-To start a local development server, run:
+Application Angular de Pokédex utilisant l’API publique [PokeAPI](https://pokeapi.co/).  
+Recherche par nom en direct, affichage sous forme de cartes, page de détail avec types et statistiques.
+
+## Lancer le projet
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Ouvrir [http://localhost:4200/](http://localhost:4200/) dans le navigateur.
 
-## Code scaffolding
+## Choix techniques
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Service Angular dédié (`HttpClient`) pour les appels API, séparés des composants.
+- Deux interfaces d’affichage : `Pokemon` (carte) et `PokemonDetails` (page détail). On n’a pas gardé que le modèle détaillé : la liste n’a ni types ni stats. Un seul gros type aurait forcé des champs vides sur les cartes. Ces infos n’arrivent qu’avec l’appel de la page détail.
+- Router pour la page de détail (`/pokemon/:id`).
+- `pokemon-list` est une **page** (l’accueil), plutôt qu’un composant `Home` générique qui n’apporterait rien de plus.
 
-```bash
-ng generate component component-name
-```
+## Aide IA
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Je me suis aidé d’une IA pour le **style CSS / mise en page** (rapprochement de la maquette du TP, adaptation desktop), le résultat sans mise en page IA est dans les commits précédents.  
+Le reste (architecture, service, composants, routage, recherche) a été fait à l’aide du cours et du TP.
