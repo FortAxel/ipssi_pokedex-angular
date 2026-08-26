@@ -11,6 +11,7 @@ import { PokemonService } from '../../services/pokemonService';
 })
 export class PokemonList implements OnInit {
   private readonly pokemonService = inject(PokemonService);
+  loading = signal(true);
 
   pokemons = signal<Pokemon[]>([]);
   searchTerm = signal('');
@@ -25,7 +26,10 @@ export class PokemonList implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.getPokemonList().subscribe({
-      next: (liste) => this.pokemons.set(liste),
+      next: (liste) => {
+        this.pokemons.set(liste);
+        this.loading.set(false);
+      }
     });
   }
 

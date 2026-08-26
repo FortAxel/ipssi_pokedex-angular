@@ -15,10 +15,14 @@
       />
     </div>
 
-    <div class="grid">
-      @for (pokemon of filteredPokemons(); track pokemon.id) {
-        <app-pokemon-card [pokemon]="pokemon" />
-      }
-    </div>
+    @if (!loading()) {
+      <div class="grid">
+        @for (pokemon of filteredPokemons(); track pokemon.id) {
+          <app-pokemon-card [pokemon]="pokemon" />
+        }
+      </div>
+    } @else {
+      <p>Chargement...</p>
+    }
   </div>
 </section>
